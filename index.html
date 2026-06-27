@@ -54,11 +54,31 @@ canvas { display: block; background: #080820; }
   </div>
   <canvas id="gc" width="680" height="460"></canvas>
   <div id="overlay">
-    <h2>Derrota al veintiochoctopusaurio Monsivais!</h2>
+    <h2>Derrota al veintiochoctopusaurio Monsivais</h2>
     <p>WASD o ← ↑ ↓ → para moverte<br>Barra espaciadora para disparar<br>¡Derrota al veintiochoctopusaurio Monsivais antes de que te destruya!</p>
     <button id="startBtn">▶ INICIAR</button>
   </div>
 </div>
+
+<audio id="bgMusic" loop preload="auto">
+    <source src="star-wolf.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const startBtn = document.getElementById("startBtn");
+const bgMusic = document.getElementById("bgMusic");
+
+startBtn.addEventListener("click", async () => {
+    try {
+        bgMusic.volume = 0.5; // opcional
+        await bgMusic.play();
+
+        console.log("Música iniciada");
+    } catch (err) {
+        console.error("No se pudo reproducir el audio:", err);
+    }
+});
+</script>
 
 <script>
 const canvas = document.getElementById('gc');
